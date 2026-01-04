@@ -1,0 +1,91 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.example</groupId>
+  <artifactId>rpc_ailing</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>rpc_core</module>
+    <module>test_api</module>
+    <module>test_client</module>
+    <module>test_server</module>
+  </modules>
+
+  <properties>
+    <java.version>1.8</java.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <lombok.version>1.18.22</lombok.version>
+    <!--    注解  编译时添加  -->
+    <hutool.version>5.7.22</hutool.version>
+    <!--    一个单独的工具包-->
+    <logback.version>1.3.14</logback.version>
+    <!--    日志组件-->
+  </properties>
+
+  <!--  版本管理，而不是引入依赖。如果引入子模块作为父工程的依赖，会出问题-->
+  <dependencyManagement>
+      <!--    如果不进行版本管理，那么子工程必须写明版本号，否则报错 -->
+    <dependencies>
+      <dependency>
+        <groupId>org.example</groupId>
+        <artifactId>test_api</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.example</groupId>
+        <artifactId>rpc_core</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+      </dependency>
+      <dependency>
+        <!--      hutool 有all 和 parent两个，用在不同的场景，一个引入全部，另一个引入pom-->
+        <!--      这里直接all就行-->
+        <groupId>cn.hutool</groupId>
+        <artifactId>hutool-all</artifactId>
+        <version>${hutool.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>${logback.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+<!--    子模块不能将这个作为父工程的依赖  -->
+<!--    <dependency>-->
+<!--      <groupId>org.example</groupId>-->
+<!--      <artifactId>test_api</artifactId>-->
+<!--      <version>${project.version}</version>-->
+<!--    </dependency>-->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+    </dependency>
+    <dependency>
+      <!--      hutool 有all 和 parent两个，用在不同的场景，一个引入全部，另一个引入pom-->
+      <!--      这里直接all就行-->
+      <groupId>cn.hutool</groupId>
+      <artifactId>hutool-all</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
