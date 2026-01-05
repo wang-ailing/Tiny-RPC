@@ -39,8 +39,8 @@ public class RpcRequest implements Serializable {
     //             -> AdminUserServiceImpl2.getUser()
 
     public String getRpcServiceName() {
-        return StrUtil.blankToDefault(getGroup(), StrUtil.EMPTY)
-                + getInterfaceName()
-                + StrUtil.blankToDefault(getVersion(), StrUtil.EMPTY);
+        return getInterfaceName()
+                + StrUtil.blankToDefault(getVersion(), StrUtil.EMPTY)
+                +StrUtil.blankToDefault(getGroup(), StrUtil.EMPTY);
     }
 }

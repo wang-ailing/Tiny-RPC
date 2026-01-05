@@ -2,7 +2,7 @@ package org.example.server;
 
 import lombok.SneakyThrows;
 import org.example.rpc.transport.RpcServer;
-import org.example.rpc.transport.socket.simple.SocketRpcServer;
+import org.example.rpc.transport.socket.simple.SimpleSocketRpcServer;
 
 /**
  * @Author violinwang
@@ -12,7 +12,7 @@ import org.example.rpc.transport.socket.simple.SocketRpcServer;
 public class SimplestSocketServerMain {
     @SneakyThrows
     public static void main(String[] args){
-        RpcServer rpcServer = new SocketRpcServer("localhost", 8888);
+        RpcServer rpcServer = new SimpleSocketRpcServer("localhost", 8888);
         rpcServer.start();
     }
 }

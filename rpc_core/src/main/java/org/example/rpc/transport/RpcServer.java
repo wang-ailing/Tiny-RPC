@@ -6,5 +6,5 @@ package org.example.rpc.transport;
  **/
 
 public interface RpcServer {
-    void start() throws Exception;
+    void start();
 }

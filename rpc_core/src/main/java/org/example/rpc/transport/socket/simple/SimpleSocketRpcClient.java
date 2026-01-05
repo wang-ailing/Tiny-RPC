@@ -19,7 +19,7 @@ import java.net.Socket;
 @Slf4j
 @Data
 @AllArgsConstructor
-public class SocketRpcClient implements RpcClient {
+public class SimpleSocketRpcClient implements RpcClient {
     private String host;
     private int port;
 

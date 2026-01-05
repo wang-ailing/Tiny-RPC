@@ -21,7 +21,7 @@ import java.net.Socket;
 @Data
 @AllArgsConstructor
 @Slf4j
-public class SocketRpcServer implements RpcServer {
+public class SimpleSocketRpcServer implements RpcServer {
     private String host;
     private int port;
 
